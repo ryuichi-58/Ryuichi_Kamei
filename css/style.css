@@ -9,6 +9,7 @@ a {
 
 /*--------------- header ----------------*/
 .header {
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,6 +84,7 @@ a {
   object-fit: cover;
   width: 100%;
   margin-top: 50px;
+  ba
 }
 
 
