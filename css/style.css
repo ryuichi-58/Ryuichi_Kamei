@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 body {
   font-family :sans-serif;
 }
@@ -17,8 +16,8 @@ a {
   justify-content: space-between;
   position: fixed;
   align-items: center;
-  background-color: #fff;
   width: 100%;
+  background-color: #fff;
 }
 .logo {
   width: 57px;
@@ -27,7 +26,6 @@ a {
 .main_wrapper {
   max-width: 800px;
   margin: 0 auto;
-
 }
 .main_nav {
   display: flex;
@@ -50,9 +48,9 @@ a {
   padding-top: 60px;
 }
 .breadcrumb li {
- display: inline;
- font-size: 11.5px;
- color: rgb(10, 10, 10);
+  display: inline;
+  font-size: 11.5px;
+  color: rgb(10, 10, 10);
 }
 .breadcrumb li:after {
   content: ">";
@@ -64,28 +62,28 @@ a {
   color: #999;
 }
 .breadcrumb a {
-  color: #999999; 
+  color: #999; 
 }
 
 /*--------------- ヘッダー画像 ----------------*/
 .big-bg {
   position: relative;
 }
-.big-bg h2 {
-  position: absolute;
-  top: 95px;
-  left: 78px;
-  font-size: 20px;
-  font-weight: normal;
-  color: white;
-}
+.big-bg h2,
 .big-bg p {
   position: absolute;
-  top: 145px;
   left: 78px;
+  color: white;
+}
+.big-bg h2 {
+  top: 95px;
+  font-size: 20px;
+  font-weight: normal;
+}
+.big-bg p {
+  top: 145px;
   font-size: 28px;
   font-weight: bold;
-  color: white;
 }
 .big-bg img{
   object-fit: cover;
@@ -186,29 +184,25 @@ figure img {
   display: flex;
   justify-content: space-between;
 }
-.page_link_left:hover {
-  text-decoration: underline; 
-}
-.page_link_left::before {
-  content: "<";
+.page_link_left::before,
+.page_link_right::after {
   display: inline-block;
   text-decoration: none;
   vertical-align: 2px;
-  padding-right: 5px;
   font-size: 14px;
   color: black;
+} 
+.page_link_left::before {
+  content: "<";
+  padding-right: 5px;
 }
+.page_link_left:hover,
 .page_link_right:hover {
   text-decoration: underline; 
 }
 .page_link_right::after {
   content: ">";
-  display: inline-block;
-  text-decoration: none;
-  vertical-align: 2px;
   padding-left: 5px;
-  font-size: 14px;
-  color: black;
 }
 .page_link a {
   color: #194ca0;
@@ -271,14 +265,14 @@ figure img {
 .lower_box li:before {
   top: 14px;
 }
-.box_01 {
+.box_inner_01 {
   width: 200px;
   padding-top: 12px;
 }
-.box_02 {
+.box_inner_02 {
   padding-top: 22px;
 }
-.box_03 {
+.box_inner_03 {
   padding: 12px;
 }
 
@@ -297,6 +291,12 @@ figure img {
 }
 .corporate_info_inner {
   border-bottom: dotted 1px #3d3d3d;
+}
+.corporate_info a {
+  color: #255BB6;
+}
+.corporate_info a:hover {
+  text-decoration: underline; 
 }
 .Management_policy {
   height: 214px;
@@ -320,16 +320,14 @@ figure img {
   flex-wrap: wrap;
   font-size: 14px;
 }
-.greater_than a:hover {
-  text-decoration: underline; 
-}
 .greater_than li {
   display: inline-block;
   width: 250px;
   padding-bottom: 22px;
 }
-.greater_than li::before {
-  content: ">";
+.greater_than li::before,
+ span::before,
+.subject::before {
   display: inline-block;
   text-decoration: none;
   padding-right: 10px;
@@ -337,27 +335,20 @@ figure img {
   font-size: 10px;
   color: #3d3d3d;
 }
+.greater_than li::before {
+  content: ">";
+}
 .greater_than li:last-child::before {
   content: none;
-}
-.greater_than a {
-  color: #255BB6;
 }
 span {
   display: block;
   height: 180px;
   padding-top: 70px;
   font-size: 16px;
-  color: #255BB6;
 }
 span::before {
   content: "<";
-  display: inline-block;
-  text-decoration: none;
-  padding-right: 10px;
-  vertical-align: 2px;
-  font-size: 10px;
-  color: #3d3d3d;
 }
 
 /*--------------- section SNS ----------------*/
@@ -387,15 +378,44 @@ span::before {
 }
 
 /*--------------- sitemap ----------------*/
-.sitemap_upper{
+.sitemap_upper,
+.sitemap_lower {
   display: flex;
   justify-content: space-between;
+  margin: 0 10px;
+  height: 480px;
 }
-.nav_wrapper {
+.sitemap_upper_inner,
+.sitemap_lower_inner {
   display: flex;
   flex-direction: column;
+  width: 301.5px;
+  margin-top: 60px;
 }
-
+.sitemap_lower {
+  margin: -45px 10px 65px 10px;
+  height: 345px;
+}
+.subject {
+  display: block;
+  font-size: 16px;
+  color: #3d3d3d;
+  padding-bottom: 25px;
+}
+.subject::before {
+  content: ">";
+}
+.nav_wrapper li {
+  display: block;
+  font-size: 14px;
+  padding-bottom: 17px;
+}
+.nav_wrapper li:last-child::before {
+  content: ">";
+}
+.nav_wrapper a {
+  color: #3d3d3d;
+}
 /*--------------- footer ----------------*/
 .footer {
   text-align: center;
