@@ -71,17 +71,17 @@ a {
 .big-bg h2,
 .big-bg p {
   position: absolute;
-  left: 78px;
+  left: 135px;
   color: white;
 }
 .big-bg h2 {
   top: 95px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
 }
 .big-bg p {
   top: 145px;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
 }
 .big-bg img{
@@ -91,24 +91,29 @@ a {
   margin-top: 50px;
 }
 
-/*--------------- SNS ----------------*/
+/*--------------- main-sns ----------------*/
 .main_sns {
   width: 800px;
   height: 90px;
+  display: flex;
+  justify-content: flex-end;
+}
+.main_sns p {
+  margin-top: 34px;
+  padding-left: 25px;
+  font-size: 11px;
+  font-weight: bolder;
+  color:  rgb(82, 82, 82);
 }
 .sns_index {
   display: flex;
   justify-content: flex-end; 
 }
-.sns_index li {
+.sns_index a {
+  display: inline-block;
+  align-items: flex-end;
   margin-top: 30px;
   padding-left: 20px;
-  font-size: 9px;
-  font-weight: bolder;
-  color:  rgb(82, 82, 82);
-}
-.sns_index li:first-child {
-  padding-top: 5px;
 }
 .sns_index img {
   width: 25px;
@@ -120,7 +125,7 @@ a {
 /*--------------- article ----------------*/
 .article_title {
   margin-bottom: 30px;
-  font-size: 20px;
+  font-size: 22px;
 }
 .article_title::before {
   content: "";
@@ -137,7 +142,7 @@ figure img {
   width: 800px;
   margin-top: 40px;
 }
-/*--------------- NRI_DX ダウンロード ----------------*/
+/*--------------- NRI_DX btn ----------------*/
 .nridx_pdf_wrapper {
   display: flex;
   justify-content: center;
@@ -313,20 +318,25 @@ figure img {
   padding: 30px 0 20px;
   color: #3d3d3d;
 }
-.greater_than {
+.greater_than,
+.content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+.greater_than {
   font-size: 14px;
 }
-.greater_than li {
+.greater_than li,
+.content li {
   display: inline-block;
   width: 250px;
   padding-bottom: 22px;
 }
 .greater_than li::before,
  span::before,
-.subject::before {
+.subject::before,
+.content li::before {
   display: inline-block;
   text-decoration: none;
   padding-right: 10px;
@@ -334,10 +344,12 @@ figure img {
   font-size: 10px;
   color: #3d3d3d;
 }
-.greater_than li::before {
+.greater_than li::before,
+.content li::before {
   content: ">";
 }
-.greater_than li:last-child::before {
+.greater_than li:last-child::before,
+.content li:last-child::before {
   content: none;
 }
 span {
@@ -352,30 +364,31 @@ span::before {
 
 /*--------------- section SNS ----------------*/
 .section_sns {
+  display: flex;
+  justify-content: center; 
   height: 95px;
   width: 100%;
   border-top: solid 2px #999;
   border-bottom: solid 2px #999;
+}
+.section_sns p {
+  display: inline-block;
+  margin-top: 30px;
+  padding-left: 40px;
+  font-size: 18px;
+  font-weight: bolder;
+  color:  #3d3d3d;
 }
 .section_sns_inner {
   display: flex;
   justify-content: center; 
 }
 .section_sns_inner li {
-  margin-top: 30px;
-  padding-left: 40px;
-  font-size: 9px;
-  font-weight: bolder;
-  color:  #3d3d3d;
-}
-.section_sns_inner li:first-child {
-  font-size: 18px;
-  padding: 0;
+  padding: 30px 0 0 40px;
 }
 .section_sns_inner img {
   width: 28px;
 }
-
 /*--------------- sitemap ----------------*/
 .sitemap_upper,
 .sitemap_lower {
@@ -389,7 +402,7 @@ span::before {
   display: flex;
   flex-direction: column;
   width: 301.5px;
-  margin-top: 60px;
+  margin-top: 58px;
 }
 .sitemap_lower {
   margin: -45px 10px 65px 10px;
@@ -397,12 +410,13 @@ span::before {
 }
 .subject {
   display: block;
-  font-size: 15px;
+  font-size: 15.5px;
   color: #3d3d3d;
   padding-bottom: 25px;
 }
 .subject::before {
   content: ">";
+  font-weight: normal;
 }
 .nav_wrapper li {
   display: block;
@@ -415,23 +429,28 @@ span::before {
 .nav_wrapper a {
   color: #3d3d3d;
 }
+.content a {
+  font-size: 13.5px;
+}
 /*--------------- footer ----------------*/
 .footer {
   text-align: left;
   height: 240px;
   border-top: 1px solid #999;
-  padding-top: 70px;
+  padding-top: 68px;
 }
+.footer_inner,
 .footer_nav_container {
   width: 1000px;
   margin: auto;
 }
 .footer li {
   display: inline;
-  flex-direction: nowrap;
   font-size: 11.5px;
   border-left: solid 1px #999;
-  padding: 0 15px;
+  text-align: center;
+  padding: 0 15px 0 20px;
+
 }
 .footer li:first-child {
   border-left: none;
@@ -439,10 +458,10 @@ span::before {
 }
 .footer a {
   color: #999; 
+  display: inline-block;
 }
 .footer p {
-  font-size: 8px;
+  font-size: 7px;
   padding-top: 20px;
   color: #3d3d3d;
-  text-align: left;
 }
