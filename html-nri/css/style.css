@@ -20,7 +20,7 @@ a {
   justify-content: space-between;
   width: 100%;
   position: fixed;
-  /*background-color: #fff;*/
+  background-color: #fff;
 }
 .logo_container {
   width: 200px;
@@ -89,7 +89,7 @@ a {
 }
 .breadcrumb li {
   display: inline;
-  font-size: 11.5px;
+  font-size: 12px;
   color: rgb(10, 10, 10);
 }
 .breadcrumb li:after {
@@ -447,7 +447,7 @@ span::before {
 .sitemap_lower_inner {
   display: flex;
   flex-direction: column;
-  width: 301.5px;
+  width: 302px;
   margin-top: 58px;
 }
 .sitemap_lower {
@@ -456,7 +456,7 @@ span::before {
 }
 .subject {
   display: block;
-  font-size: 15.5px;
+  font-size: 16px;
   color: #3d3d3d;
   padding-bottom: 25px;
 }
@@ -476,7 +476,7 @@ span::before {
   color: #3d3d3d;
 }
 .content a {
-  font-size: 13.5px;
+  font-size: 14px;
 }
 /*--------------- footer ----------------*/
 .footer {
