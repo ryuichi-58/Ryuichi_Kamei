@@ -17,22 +17,22 @@
     <body>
         <!--=============== header ===============-->
         <header class="header">
-            <div class="header_inner">
-                <div>
-                <nav class="header_top">
-                    <p>KADOKAWA・ドワンゴが創るネットの高校</p>
-                    <ul class="header_contents">
-                        <li><a href="#">ニュース</a></li>
-                        <li><a href="#">ブログ</a></li>
-                        <li class="login"><a href="#">生徒用ログイン</a></li>
-                    </ul>
-                </nav>
-               </div>
+            <div class="header_container">
+                <div class="header_top_inner">
+                    <nav class="header_top">
+                        <p>KADOKAWA・ドワンゴが創るネットの高校</p>
+                        <ul class="header_contents">
+                            <li><a href="#">ニュース</a></li>
+                            <li><a href="#">ブログ</a></li>
+                            <li class="login"><a href="#">生徒用ログイン</a></li>
+                        </ul>
+                    </nav>
+                </div>
                 <section class="header_nav">
-                    <h1><a href="#"><img class="logo" src="images/header_logo.png" alt="学校法人角川ドワンゴ学園サインロゴ"></a></h1>
+                    <h1><a href="#"><img class="logo" src="images/logo_header.svg" alt="学校法人角川ドワンゴ学園サインロゴ"></a></h1>
                     <nav class="info">
                         <div>
-                            <a href="tel:0120-0252-15">0120-0252-15</a>
+                            <a href="tel:0120-0252-15" class="info_number">0120-0252-15</a>
                             <p>受付時間 平日10:00〜20:00</p>
                         </div>
                         <ul class="info_btn">
@@ -58,8 +58,8 @@
             <!-- main_visual -->
             <section class="main_visual">
                 <div class="main_visual_inner">
-                    <img src="images/main_visual.jpg" alt="" aria-hidden="true">
-                    <p>about</p>
+                    <img src="images/header_image.jpg" alt="" aria-hidden="true">
+                    <span>about</span>
                     <h2 class="main_title">ネットの高校とは</h2>
                     <p>IT×グローバル社会を生き抜く<br>“総合力”を身につける<br>多様なスキルと多様な体験<br></p>
                 </div>
@@ -67,16 +67,18 @@
             <!-- /main_visual -->
             <!-- ネットの高校の教育方針 -->
             <section>
-                <section class="educational_policy section_line">
-                    <div>
-                        <h2 class="section_title section_line">ネットの高校の教育方針</h2>
+                <section class="educational_policy">
+                    <div class="main_section_container">
+                        <div class="section_inner">
+                            <h2 class="section_title">ネットの高校の教育方針</h2>
+                        </div>
                     </div>
                     <article>
                         <p>ネットの高校は主体的に行動できる人を育み続けます。机の上だけで学ぶ勉強だけでなく、自由な発想で考え主体性をもって問題に取り組む力となるのは総合力です。インターネットが社会に広がり、私たちの生活は大きく変わりました。世界中の情報が誰でも簡単に手に入ります。しかし、情報そのものだけでは価値は生まれず、その情報を元に自分なりに考え動ける人が価値を生み出せるのです。総合力を礎に個性という独自性が付加価値となります。ネットの高校では、総合力を身につけるために、教養・思考力・実践力の3つを学びます。</p>
                     </article>
                     <div>
                         <figure>
-                            <img src="images/" alt="総合力＝教養・思考力・実践力">
+                            <img src="images/img_01.jpg" alt="総合力＝教養・思考力・実践力">
                         </figure>
                         <dl>
                             <dt>教養</dt>
@@ -91,7 +93,7 @@
                 <!-- /ネットの高校の教育方針 -->
                 <!-- ネットの高校の特長_01 -->
                 <section class="section_container">
-                    <div>
+                    <div class="main_section_inner">
                         <h2 class="section_title section_line">ネットの高校の特長</h2>
                     </div>
                     <article>
@@ -101,14 +103,14 @@
                         <a href="#" class="">必修授業について</a>
                     </article>
                     <figure>
-                        <img src="imges/img_01.jpg" alt="1日の行動例">
+                        <img src="images/img_02.jpg" alt="1日の行動例">
                     </figure>
                 </section>
                 <!-- /ネットの高校の特長_01 -->
                 <!-- ネットの高校の特長_02 -->
                 <section>
                     <figure>
-                        <img src="imges/img_02.jpg" alt="将来の目標">
+                        <img src="images/img_03.jpg" alt="将来の目標">
                     </figure>
                     <article>
                         <p class="number">02</p>
@@ -129,7 +131,7 @@
                         <p>ICTツールを活用することで、日本全国・海外に住んでいる生徒同士がつながれます。コミュニケーションツールを使ったチャット形式のホームルーム・ネット運動会・ネット遠足などで友だちが作れ、リアルで行われるスクーリング・文化祭・職業体験で友だちに会うことができます。ネットの高校では、ネットとリアル双方のコミュニケーションを学べます。</p>
                     </article>
                     <figure>
-                        <img src="imges/img_03.jpg" alt="ICTツールの活用">
+                        <img src="images/img_04.jpg" alt="ICTツールの活用">
                     </figure>
                     <div>
                         <a href="#">年間イベント</a>
@@ -317,9 +319,9 @@
                 </nav>
                 <nav>
                     <ul>
-                        <li><a href="#"><img src="icon_tw.svg" alt="Twitterアイコン"></a></li>
-                        <li><a href="#"><img src="icon_fb.svg" alt="Facebookアイコン"></a></li>
-                        <li><a href="#"><img src="icon_yt.svg" alt="YouTubeアイコン"></a></li>
+                        <li><a href="#"><img src="images/icon_tw.svg" alt="Twitterアイコン"></a></li>
+                        <li><a href="#"><img src="images/icon_fb.svg" alt="Facebookアイコン"></a></li>
+                        <li><a href="#"><img src="images/icon_yt.svg" alt="YouTubeアイコン"></a></li>
                     </ul>
                 </nav>
             </section>
