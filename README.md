@@ -1,1 +1,0 @@
-# Ryuichi_Kamei
