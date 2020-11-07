@@ -379,3 +379,127 @@ a {
 .net_hs_container a {
   color: #272727;
 }
+
+/* -- CONTACT --*/
+.contact {
+  margin-top: 95px;
+  width: 100%;
+  height: 315px;
+  background-color: #1f286f;
+  color: #fff;
+}
+.contant_container {
+  width: 870px;
+  margin: auto;
+  margin-top: 80px;
+
+}
+.contact_inner {
+  display: flex;
+  justify-content: center;
+  height: 130px;
+  padding-top: 80px;
+}
+.contact_title {
+  padding-top: 10px;
+  margin-right: 50px;
+}
+.contact_title p {
+  display: inline-block;
+  font-family: "Gelasio";
+  letter-spacing: .12em;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #eceef8; 
+  margin-left: 90px;
+}
+.contact_title h4 {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 20px;
+}
+.contact_btn {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  width: 250px;
+  font-weight: bold;
+}
+.contact_form {
+  margin-right: 20px;
+}
+.contact_form_upper {
+  height: 55px;
+  padding-top: 15px;
+  font-size: 15px;
+  color: #1f286f;
+  background-color: #eceef8;
+}
+.contact_form_lower {
+  height: 45px;
+  padding-top: 10px;
+  font-size: 15px;
+  color: #eceef8;
+  background-color: #1f286f;
+  border: 1px solid #eceef8;
+}
+.contact_form span {
+  font-weight: normal;
+  font-size: 14px;
+}
+.tel_btn_font {
+  font-family: "PT Sans Narrow";
+  font-weight: bold;
+  letter-spacing: .06em;
+  font-size: 22px;
+}
+.consultation_icon::before,
+.book_icon::before,
+.tel_btn_font::before {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 4px 0;
+}
+.form_icon_n,
+.form_icon_w {
+  position: relative;
+}
+.form_icon_n::after,
+.form_icon_w::after {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 18px;
+  right: 20px;
+}
+.form_icon_w::after {
+  top: 13px;
+}
+.consultation_icon::before {
+  background-image: url(../images/Explanation.svg);
+}
+.book_icon::before {
+  background-image: url(../images/bookmark.svg);
+}
+.tel_btn_font::before {
+  background-image: url(../images/tel_w.svg);
+}
+.form_icon_n::after {
+  background-image: url(../images/link_n.svg);
+}
+.form_icon_w::after {
+  background-image: url(../images/link_w.svg);
+}
+.contact_Inquiry {
+  font-size: 13px;
+  letter-spacing: .06em;
+  font-weight: 600;
+  margin: 20px 0 10px 50px;
+}
+.Reception_time {
+  color: #b6bbe0;
+  padding-right: 10px;
+  font-size: 13px;
+  letter-spacing: .06em;
+  margin: 10px 0 0 30px;
+}
