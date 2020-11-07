@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+/* -- 共通部分 --*/
+body {
+  font-family: "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "Hiragino Sans",sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* -- header --*/
+/* -- header_top --*/
+.header_top_inner {
+  background-color: #fafbfd;
+}
+.header_top,
+.header_nav,
+.header_nav_title {
+  max-width: 1080px;
+  margin: auto;
+}
+.header_top {
+  height: 40px;
+  padding-top: 7px;
+}
+.header_top p {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 300;
+  color: #8d959c;
+}
+.header_contents {
+  display: flex;
+  justify-content: center;
+  font-weight: 300;
+}
+.header_contents a {
+  padding: 0 15px;
+  font-size: 12px;
+  border-right: 1px solid #E1E1EB;
+  color: #272727;
+}
+.login a {
+  color: #1f286f;
+  font-weight: bold;
+  border-right: none;
+}
+.login a::before {
+  background-image: url(../images/login.svg);
+  width: 18px;
+  height: 18px;
+  margin: 0 5px 2px 0;
+}
+
+/* -- header_nav --*/
+.header_nav {
+  height: 115px;
+  padding-top: 30px;
+}
+.header_nav h1 {
+  width: 365px;
+}
+.header_top,
+.header_nav,
+.info,
+.info_btn {
+  display: flex;
+  justify-content: space-between;
+}
+.info div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+.info_number {
+  font-family: "PT Sans Narrow";
+  font-weight: bold;
+  font-size: 27px;
+  letter-spacing: .06em;
+  height: 32px;
+  color: #1f286f;
+}
+.info_number::before {
+  background-image: url(../images/tel_n.svg);
+  width: 24px;
+  height: 24px;
+  margin: 0 5px 4px 0;
+}
+.info p {
+  font-size: 11px;
+  letter-spacing: .06em;
+  font-weight: 300;
+  padding-left: 32px;
+  color: #8d959c;
+}
+.info_btn {
+  width: 292px;
+  margin-right: 15px;
+}
+.info_btn li {
+  border-radius: 5px;
+  width: 140px;
+  height: 45px;
+  margin-top: 3px;
+  padding: 10px 0 0 21px;
+  background-color: #1f286f;
+}
+.info_btn a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fafbfd;
+}
+.info_btn span {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+/* -- header_nav_title --*/
+.header_nav_title ul {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+}
+.header_nav_title li {
+  display: inline-block;
+  height: 40px;
+  width: 205px;
+  border-right: 1px solid #e1e1eb;
+  padding-top: 7px;
+}
+.header_nav_title li:last-child {
+  border-right: none;
+}
+.header_nav_title li:nth-of-type(3) {
+  padding: 0 0 0 33px;
+  display: flex;
+}
+.header_nav_title li a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #272727;
+}
