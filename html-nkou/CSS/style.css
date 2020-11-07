@@ -246,3 +246,136 @@ a {
   margin: auto;
   padding-top: 100px;
 }
+
+/* -- ネットの高校の特長 --*/
+.placement_flex article {
+  width: 510px;
+}
+.number {
+  letter-spacing: .10em;
+  font-family: C;
+  font-size: 60px;
+  color: #1f286f;
+}
+.number01 {
+  margin-top: 20px;
+}
+.placement_flex img {
+  width: 515px;
+}
+.placement_flex h3 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: .10em;
+  line-height: 1.8;
+  padding-bottom: 20px;
+}
+.section_Commentary {
+  letter-spacing: .05em;
+  line-height: 1.9;
+  padding-bottom: 25px;
+}
+.placement_flex a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1f286f;
+}
+.placement_flex a:after {
+  content: "";
+  background-image: url(../images/Arrow.svg);
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-size: contain;
+  vertical-align: middle;
+  margin: 0 0 3px 5px;
+}
+.placement_flex div {
+  flex-direction: column;
+}
+.placement_flex div a {
+  padding-right: 15px;
+}
+.ict_img {
+  border-radius: 5px;
+  overflow: hidden;
+  padding-top: 40px;
+}
+.ict_list {
+  border-radius: 5px;
+  width: 895px;
+  height: 260px;
+  margin: auto;
+  background-color: #f0f3f8;
+}
+.ict_list_inner {
+  margin: 30px;
+  width: 735px;
+  padding: 20px;
+}
+.ict_list_inner dt {
+  font-weight: bold;
+  padding: 20px 0 15px 0;
+}
+.ict_list_inner dd {
+  padding-bottom: 10px;
+}
+.ict_list_inner li {
+  position: relative;
+  display: inline;
+  justify-content: space-around;
+  padding: 0 18px 20px 18px;
+  font-size: 14px;
+}
+.ict_list_inner span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  top: 8px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #1f286f;
+}
+.ict_list_inner p {
+  padding-top: 12px;
+  font-size: 14px;
+}
+
+/* -- ネット高校とは --*/
+.net_hs {
+  margin-top: 100px;
+}
+.net_hs_container {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  width: 1080px;
+  height: 315px;
+  margin: auto;
+  background-color: #f0f3f8;
+}
+.net_hs_inner {
+  width: 33.3333%;
+  padding-right: 15px;
+  margin-top: 12px;
+  height: 295px;
+}
+.net_hs_inner h4 {
+  font-size: 22px;
+  color: #1f286f;
+  text-align: center;
+  padding-top: 130px;
+}
+.net_hs_container li {
+  height: 16.6667%;
+  padding-top: 15px;
+  border-bottom: 1px solid #e1e1eb;
+  font-size: 14px;
+}
+.net_hs_container li:last-child {
+  border-bottom: none;
+}
+.net_hs_container a {
+  color: #272727;
+}
