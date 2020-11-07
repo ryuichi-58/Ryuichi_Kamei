@@ -11,6 +11,26 @@ li {
 a {
   text-decoration: none;
 }
+.info_number::before,
+.login a::before,
+.tel_btn_font::before,
+.book_icon::before,
+.consultation_icon::before,
+.form_icon_n::after,
+.form_icon_w::after {
+  content: "";
+  display: inline-block;
+  background-size: contain;
+  vertical-align: middle;
+}
+.main_visual_inner span,
+.main_title,
+.main_visual_inner p {
+  position: absolute;
+  top: 340px;
+  left: 80px;
+  text-shadow: 0 0 15px rgba(20,36,47,.3);
+}
 
 /* -- header --*/
 /* -- header_top --*/
@@ -502,4 +522,47 @@ a {
   font-size: 13px;
   letter-spacing: .06em;
   margin: 10px 0 0 30px;
+}
+
+/* -- 関連スクール --*/
+.relation_title {
+  height: 140px;
+}
+.relation_title {
+  display: flex;
+  justify-content: center;
+  font-size: 23px;
+  width: 710px;
+  margin: auto;
+  padding-top: 70px;
+}
+.relation_box {
+  display: flex;
+  justify-content: space-between;
+  width: 710px;
+  margin: auto;
+}
+.relation_box_inner {
+  position: relative;
+}
+.relation_logo_njr,
+.relation_logo_ncode {
+  position: absolute;
+  top: 128px;
+  left: 0;
+  height: 65px;
+  width: 100%;
+  border: 1px solid #e1e1eb;
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+}
+.relation_img_njr img {
+  position: relative;
+  height: 100%;
+}
+.relation_logo_njr img {
+  margin: 13px 0 0 100px;
+}
+.relation_logo_ncode img {
+  margin: 20px 0 0 80px;
 }
