@@ -51,7 +51,7 @@ a {
   background-color: #fafbfd;
 }
 .header_top,
-.header_nav,
+.header_nav_inner,
 .header_nav_title {
   max-width: 1080px;
   margin: auto;
@@ -93,15 +93,15 @@ a {
 }
 
 /* -- header_nav --*/
-.header_nav {
+.header_nav_inner {
   height: 115px;
   padding-top: 30px;
 }
-.header_nav h1 {
+.header_nav_inner h1 {
   width: 365px;
 }
 .header_top,
-.header_nav,
+.header_nav_inner,
 .info,
 .info_btn {
   display: flex;
