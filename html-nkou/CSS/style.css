@@ -64,6 +64,7 @@ a {
   display: inline-block;
   font-size: 12px;
   font-weight: 300;
+  margin-top: 5px;
   color: #8d959c;
 }
 .header_contents {
@@ -188,7 +189,7 @@ a {
 /* -- main --*/
 /* -- main_visual --*/
 .main_visual {
-  min-height: 100%;
+  min-height: auto;
   position: relative;
   color: #fff;
 }
@@ -198,8 +199,9 @@ a {
 }
 .main_visual_inner img {
   width: 100%;
-  height: 100%;
+  height: 650px;
   margin-top: 22px;
+  object-fit: cover;
 }
 .main_visual_inner span {
   top: 220px;
@@ -296,9 +298,6 @@ a {
   font-size: 60px;
   color: #1f286f;
 }
-.number01 {
-  margin-top: 20px;
-}
 .placement_flex img {
   width: 515px;
 }
@@ -335,10 +334,12 @@ a {
 .placement_flex div a {
   padding-right: 15px;
 }
+.placement_flex figure {
+  padding: 50px;
+}
 .ict_img {
   border-radius: 5px;
   overflow: hidden;
-  padding-top: 40px;
 }
 .ict_list {
   border-radius: 5px;
@@ -370,7 +371,7 @@ a {
   position: absolute;
   display: block;
   border-radius: 50%;
-  top: 8px;
+  top: 6px;
   left: 0;
   width: 6px;
   height: 6px;
@@ -451,7 +452,7 @@ a {
   font-family: "Gelasio";
   letter-spacing: .12em;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   border-bottom: 1px solid #eceef8; 
   margin-left: 90px;
 }
@@ -584,7 +585,7 @@ a {
 }
 .relation_img_njr img {
   position: relative;
-  height: 100%;
+  height: auto;
 }
 .relation_logo_njr img {
   margin: 13px 0 0 100px;
@@ -695,9 +696,10 @@ a {
   letter-spacing: .03em;
 }
 .announce p {
-  font-size: 7px;
+  font-size: 10px;
+  font-weight: 500;
   color: #8d959c;
-  letter-spacing: .13em;
+  letter-spacing: .09em;
   line-height: 1.9;
 }
 
@@ -705,12 +707,13 @@ a {
 .footer {
   display: flex;
   justify-content: center;
-  height: 70px;
+  height: 80px;
   width: 1080px;
   margin: auto;
 }
 .footer p {
   padding-top: 25px;
-  font-size: 7px;
+  font-size: 14px;
+  letter-spacing: .07em;
   color: #8d959c;
 }
