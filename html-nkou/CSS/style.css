@@ -1,0 +1,719 @@
+@charset "UTF-8";
+
+/* -- 共通部分 --*/
+body {
+  font-family: "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "Hiragino Sans",sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.info_number::before,
+.login a::before,
+.tel_btn_font::before,
+.book_icon::before,
+.consultation_icon::before,
+.form_icon_n::after,
+.form_icon_w::after {
+  content: "";
+  display: inline-block;
+  background-size: contain;
+  vertical-align: middle;
+}
+.main_visual_inner span,
+.main_title,
+.main_visual_inner p {
+  position: absolute;
+  top: 340px;
+  left: 80px;
+  text-shadow: 0 0 15px rgba(20,36,47,.3);
+}
+.contact_form_upper:hover,
+.relation_box_inner:hover,
+.breadcrumb li:hover,
+.subject:hover,
+.sns_icon img:hover,
+.placement_flex a:hover,
+.info_btn li:hover,
+.info_number:hover,
+.header_nav h1:hover,
+.login:hover {
+  opacity: 0.8;
+  transition:opacity 0.2s linear;
+}
+
+/* -- header --*/
+/* -- header_top --*/
+.header_top_inner {
+  background-color: #fafbfd;
+}
+.header_top,
+.header_nav_inner,
+.header_nav_title {
+  max-width: 1080px;
+  margin: auto;
+}
+.header_top {
+  height: 40px;
+  padding-top: 7px;
+}
+.header_top p {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 300;
+  margin-top: 5px;
+  color: #8d959c;
+}
+.header_contents {
+  display: flex;
+  justify-content: center;
+  font-weight: 300;
+}
+.header_contents a {
+  padding: 0 15px;
+  font-size: 12px;
+  border-right: 1px solid #E1E1EB;
+  color: #272727;
+}
+.header_contents a:hover {
+  color: #1f286f;
+}
+.login a {
+  color: #1f286f;
+  font-weight: bold;
+  border-right: none;
+}
+.login a::before {
+  background-image: url(../images/login.svg);
+  width: 18px;
+  height: 18px;
+  margin: 0 5px 2px 0;
+}
+
+/* -- header_nav --*/
+.header_nav_inner {
+  height: 115px;
+  padding-top: 30px;
+}
+.header_nav_inner h1 {
+  width: 365px;
+}
+.header_top,
+.header_nav_inner,
+.info,
+.info_btn {
+  display: flex;
+  justify-content: space-between;
+}
+.info div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+.info_number {
+  font-family: "PT Sans Narrow";
+  font-weight: bold;
+  font-size: 27px;
+  letter-spacing: .06em;
+  height: 32px;
+  color: #1f286f;
+}
+.info_number::before {
+  background-image: url(../images/tel_n.svg);
+  width: 24px;
+  height: 24px;
+  margin: 0 5px 4px 0;
+}
+.info p {
+  font-size: 11px;
+  letter-spacing: .06em;
+  font-weight: 300;
+  padding-left: 32px;
+  color: #8d959c;
+}
+.info_btn {
+  width: 292px;
+  margin-right: 15px;
+}
+.info_btn li {
+  border-radius: 5px;
+  width: 140px;
+  height: 45px;
+  margin-top: 3px;
+  padding: 10px 0 0 21px;
+  background-color: #1f286f;
+}
+.info_btn a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fafbfd;
+}
+.info_btn span {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+/* -- header_nav_title --*/
+.header_nav_title ul {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+}
+.header_nav_title li {
+  display: inline-block;
+  height: 40px;
+  width: 205px;
+  border-right: 1px solid #e1e1eb;
+  padding-top: 7px;
+}
+.header_nav_title li:last-child {
+  border-right: none;
+}
+.header_nav_title li:nth-of-type(3) {
+  padding: 0 0 0 33px;
+  display: flex;
+}
+.header_nav_title li a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #272727;
+}
+.header_nav_title li a:hover {
+  color: #1f286f;
+}
+
+/* -- main --*/
+/* -- main_visual --*/
+.main_visual {
+  min-height: auto;
+  position: relative;
+  color: #fff;
+}
+.main_visual_inner {
+  position: relative;
+  height: 670px;
+}
+.main_visual_inner img {
+  width: 100%;
+  height: 650px;
+  margin-top: 22px;
+  object-fit: cover;
+}
+.main_visual_inner span {
+  top: 220px;
+  font-size: 26px;
+  font-family: "Gelasio", serif;
+  font-weight: 500;
+  letter-spacing: .15em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.main_title {
+  top: 270px;
+  letter-spacing: .18em;
+  font-size: 55px;
+}
+.main_visual_inner p {
+  top: 380px;
+  line-height: 2;
+  letter-spacing: .17em;
+  font-size: 20px;
+  font-weight: bold;
+}
+.main_section_inner {
+  width: 100%;
+  height: 180px;
+  background-color: #f0f3f8;
+}
+.main_section_container {
+  position: relative;
+  padding-bottom: 40px;
+}
+.main_section_container:after {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 80px;
+  border-left: 1px solid #1f286f;
+}
+.section_title {
+  text-align: center;
+  padding-top: 60px;
+  letter-spacing: .1em;
+  font-size: 37px;
+  font-weight: 600;
+  color: #1f286f;
+}
+.educational_policy article {
+  width: 1075px;
+  margin: auto;
+  margin-top: 40px;
+  line-height: 2.3;
+  letter-spacing: .07em;
+}
+.Illustrated {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0 75px 0;
+  width: 715px;
+  margin: auto;
+}
+.Illustrated img {
+  width: 335px;
+}
+.Illustrated dl {
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  height: 85px;
+  width: 330px;
+  background-color: #f0f3f8;
+}
+.Illustrated dt {
+  font-weight: bold;
+  color: #1f286f;
+}
+.placement_flex {
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+  margin: auto;
+  padding-top: 100px;
+}
+
+/* -- ネットの高校の特長 --*/
+.placement_flex article {
+  width: 510px;
+}
+.number {
+  letter-spacing: .10em;
+  font-family: "Gelasio", serif;
+  font-size: 60px;
+  color: #1f286f;
+}
+.placement_flex img {
+  width: 515px;
+}
+.placement_flex h3 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: .10em;
+  line-height: 1.8;
+  padding-bottom: 20px;
+}
+.section_commentary {
+  letter-spacing: .05em;
+  line-height: 1.9;
+  padding-bottom: 25px;
+}
+.placement_flex a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1f286f;
+}
+.placement_flex a:after {
+  content: "";
+  background-image: url(../images/Arrow.svg);
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-size: contain;
+  vertical-align: middle;
+  margin: 0 0 3px 5px;
+}
+.placement_flex div {
+  flex-direction: column;
+}
+.placement_flex div a {
+  padding-right: 15px;
+}
+.placement_flex figure {
+  padding: 50px;
+}
+.ict_img {
+  border-radius: 5px;
+  overflow: hidden;
+}
+.ict_list {
+  border-radius: 5px;
+  width: 895px;
+  height: 260px;
+  margin: auto;
+  background-color: #f0f3f8;
+}
+.ict_list_inner {
+  margin: 30px;
+  width: 735px;
+  padding: 20px;
+}
+.ict_list_inner dt {
+  font-weight: bold;
+  padding: 15px 0 15px 0;
+}
+.ict_list_inner dd {
+  padding-bottom: 10px;
+}
+.ict_list_inner li {
+  position: relative;
+  display: inline;
+  justify-content: space-around;
+  padding: 0 18px 20px 18px;
+  font-size: 14px;
+}
+.ict_list_inner span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  top: 6px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #1f286f;
+}
+.ict_list_inner p {
+  padding-top: 12px;
+  font-size: 14px;
+}
+
+/* -- ネット高校とは --*/
+.net_hs {
+  margin-top: 100px;
+}
+.net_hs_container {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  width: 1080px;
+  height: 315px;
+  margin: auto;
+  background-color: #f0f3f8;
+}
+.net_hs_inner {
+  width: 33.3333%;
+  padding-right: 15px;
+  margin-top: 12px;
+  height: 295px;
+}
+.net_hs_inner h4 {
+  font-size: 22px;
+  color: #1f286f;
+  text-align: center;
+  padding-top: 130px;
+}
+.net_hs_inner li {
+  height: 16.6667%;
+  padding-top: 15px;
+  border-bottom: 1px solid #e1e1eb;
+  font-size: 14px;
+}
+.net_hs_inner li:last-child {
+  border-bottom: none;
+}
+.net_hs_fix {
+  color: #1f286f;
+}
+.net_hs_inner a {
+  color: #272727;
+}
+
+/* -- CONTACT --*/
+.contact {
+  margin-top: 95px;
+  width: 100%;
+  height: 315px;
+  background-color: #1f286f;
+  color: #fff;
+}
+.contant_container {
+  width: 870px;
+  margin: auto;
+  margin-top: 80px;
+
+}
+.contact_inner {
+  display: flex;
+  justify-content: center;
+  height: 130px;
+  padding-top: 80px;
+}
+.contact_title {
+  padding-top: 10px;
+  margin-right: 50px;
+}
+.contact_title p {
+  display: inline-block;
+  font-family: "Gelasio", serif;
+  letter-spacing: .12em;
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 1px solid #eceef8; 
+  margin-left: 90px;
+}
+.contact_title h4 {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 20px;
+}
+.contact_btn {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  width: 250px;
+  font-weight: bold;
+}
+.contact_form {
+  margin-right: 20px;
+}
+.contact_form_upper {
+  height: 55px;
+  padding-top: 15px;
+  font-size: 15px;
+  color: #1f286f;
+  background-color: #eceef8;
+}
+.contact_form_lower {
+  height: 45px;
+  padding-top: 10px;
+  font-size: 15px;
+  color: #eceef8;
+  background-color: #1f286f;
+  border: 1px solid #eceef8;
+}
+.contact_form_lower:hover {
+  background-color: #575fa5;
+  transition:opacity 0.2s linear;
+}
+.contact_form span {
+  font-weight: normal;
+  font-size: 14px;
+}
+.tel_btn_font {
+  font-family: "PT Sans Narrow";
+  font-weight: bold;
+  letter-spacing: .06em;
+  font-size: 22px;
+}
+.consultation_icon::before,
+.book_icon::before,
+.tel_btn_font::before {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 4px 0;
+}
+.form_icon_n,
+.form_icon_w {
+  position: relative;
+}
+.form_icon_n::after,
+.form_icon_w::after {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 18px;
+  right: 20px;
+}
+.form_icon_w::after {
+  top: 13px;
+}
+.consultation_icon::before {
+  background-image: url(../images/Explanation.svg);
+}
+.book_icon::before {
+  background-image: url(../images/bookmark.svg);
+}
+.tel_btn_font::before {
+  background-image: url(../images/tel_w.svg);
+}
+.form_icon_n::after {
+  background-image: url(../images/link_n.svg);
+}
+.form_icon_w::after {
+  background-image: url(../images/link_w.svg);
+}
+.contact_Inquiry {
+  font-size: 13px;
+  letter-spacing: .06em;
+  font-weight: 600;
+  margin: 20px 0 10px 50px;
+}
+.Reception_time {
+  color: #b6bbe0;
+  padding-right: 10px;
+  font-size: 13px;
+  letter-spacing: .06em;
+  margin: 10px 0 0 30px;
+}
+
+/* -- 関連スクール --*/
+.relation_title {
+  height: 140px;
+}
+.relation_title {
+  display: flex;
+  justify-content: center;
+  font-size: 23px;
+  width: 710px;
+  margin: auto;
+  padding-top: 70px;
+}
+.relation_box {
+  display: flex;
+  justify-content: space-between;
+  width: 710px;
+  margin: auto;
+}
+.relation_box_inner {
+  position: relative;
+}
+.relation_logo_njr,
+.relation_logo_ncode {
+  position: absolute;
+  top: 128px;
+  left: 0;
+  height: 65px;
+  width: 100%;
+  border: 1px solid #e1e1eb;
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+}
+.relation_img_njr img {
+  position: relative;
+  height: auto;
+}
+.relation_logo_njr img {
+  margin: 13px 0 0 100px;
+}
+.relation_logo_ncode img {
+  margin: 20px 0 0 80px;
+}
+
+/* -- breadcrumb --*/
+.breadcrumb {
+  margin-top: 150px;
+  height: 40px;
+  width: 100%;
+  border-top: 1px solid #e1e1eb;
+  border-bottom: 1px solid #e1e1eb;
+}
+.breadcrumb ul {
+  display: flex;
+  justify-content: flex-start;
+  width: 1080px;
+  margin: auto;
+}
+.breadcrumb li {
+  padding-top: 10px;
+  font-size: 14px;
+}
+.breadcrumb a {
+  padding-right: 10px;
+  color: #272727;
+}
+.breadcrumb a span {
+  padding-left: 10px;
+}
+
+/* -- sitemap --*/
+.sitemap {
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+  margin: auto;
+  padding: 40px 0 30px 0;
+}
+.sitemap li {
+  padding-bottom: 10px;
+}
+.sitemap li a {
+  letter-spacing: .09em;
+  font-size: 13px;
+  color: #272727;
+}
+.sitemap_container {
+  display: flex;
+  justify-content: space-between;
+  border-right: 1px solid #e1e1eb;
+}
+.sitemap_inner {
+  width: 216px;
+}
+.sitemap_inner h4 {
+  padding-bottom: 15px;
+}
+.subject {
+  letter-spacing: .09em;
+  color: #1f286f;
+}
+.nav_wrapper span {
+  display: inline-block;
+  font-size: 11px;
+  color: #8d959c;
+  line-height: 1;
+}
+.sitemap_adjust_ns {
+  display: inline-block;
+  margin-top: 35px;
+}
+.sitemap_adjust_ihc {
+  display: inline-block;
+  margin-top: 55px;
+}
+.aside_upper {
+  border-bottom: 1px solid #e1e1eb;
+  padding-bottom: 10px;
+}
+.aside_lower {
+  padding-top: 30px;
+}
+
+/* -- sns_icon --*/
+.sns_icon ul {
+  display: flex;
+  justify-content: flex-start;
+}
+.sns_icon li {
+  padding: 10px 12px 10px 0;
+}
+.sns_icon img {
+  width: 32px;
+}
+.announce {
+  width: 1080px;
+  margin: auto;
+  background-color: #fafbfd;
+  padding: 26px;
+}
+.announce h5 {
+  color: #8d959c;
+  font-weight: normal;
+  letter-spacing: .03em;
+}
+.announce p {
+  font-size: 10px;
+  font-weight: 500;
+  color: #8d959c;
+  letter-spacing: .09em;
+  line-height: 1.9;
+}
+
+/* -- footer --*/
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  width: 1080px;
+  margin: auto;
+}
+.footer p {
+  padding-top: 25px;
+  font-size: 14px;
+  letter-spacing: .07em;
+  color: #8d959c;
+}
