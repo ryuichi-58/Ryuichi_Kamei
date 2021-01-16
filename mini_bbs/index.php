@@ -1,13 +1,12 @@
 <?php
 session_start();
-require('dbconnect.php');
+require_once('dbconnect.php');
 
 if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     // ログインしている
     $_SESSION['time'] = time();
-
     $members = $db->prepare('SELECT * FROM members WHERE id=?');
-    $members->execute(array($_SESSION['id']));
+    $members->execute[$_SESSION['id']];
     $member = $members->fetch();
 } else {
     // ログインしていない
@@ -15,7 +14,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     exit();
 }
 
-// 投稿を記録する
+// 投稿を記録
 if (!empty($_POST)) {
     if ($_POST['message'] != '') {
         if (!isset($_REQUEST['res'])) {
@@ -24,19 +23,19 @@ if (!empty($_POST)) {
         $message = $db->prepare('INSERT INTO posts
                                 SET member_id=?,
                                 message=?, reply_post_id=?, created=NOW()');
-        $message->execute(array(
+        $message->execute([
             $member['id'],
             $_POST['message'],
             $_POST['reply_post_id']
-        ));
+        ]);
         header('Location: index.php');
         exit();
     }
 }
 
-// 投稿を取得する
+// 投稿を取得
 $page = $_REQUEST['page'];
-if ($page == '') {
+if ($page === '') {
     $page = 1;
 }
 $page = max($page, 1);
@@ -60,7 +59,7 @@ if (isset($_REQUEST['res'])) {
                             FROM members m.posts p
                             WHERE m.id=p.member_id
                             AND p.id=? ORDER BY p.created DESC');
-    $response->execute(array($_REQUEST['res']));
+    $response->execute([$_REQUEST['res']]);
 
     $table = $response->fetch();
     $message = '@' . $table['name'] . ' ' . $table['message'];
@@ -116,41 +115,28 @@ function makeLink($value) {
                 <div class="msg_container">
                     <p><img src="member_picture/<?php echo h($post['picture']); ?>" width="40" height="40" alt="<?php echo h($post['name']);?>" /></p>
                     <article class="user">
-                    <span class="name"><?php echo h($post['name']) ?></span>
+                        <span class="name"><?php echo h($post['name']) ?></span>
                     </article>
                     <article class="day">
-                    <div class="created">
-                        <?php echo h($post['created']); ?>
-                    </div>
-                    <!-- ライクボタン -->
-                    <?php
-                    $like_cnt = 0;
-                    if (!empty($my_like)) {
-                        foreach($my_like as $like_post) {
-                            foreach ($like_post as $like_post_id) {
-                                if ($like_post_id == $post['id']) {
-                                    $like_cnt = 1;
-                                }
-                            }
-                        }
-                    }
-                    ?>
-                        <div>
-                        <p><a href="index.php?like=<?php echo h($post['id']); ?>&page=<?php echo h($page); ?>"><i class="far fa-heart"></i></a></p>
+                        <div class="created">
+                            <?php echo h($post['created']); ?>
                         </div>
-                    <div class="icon_reply">
-                        <p class="meg_reply"><a href="index.php?res=<?php echo h($post['id']); ?>"><i class="fas fa-reply"></i> 返信</a></p>
-                    </div>
-                    <div class="icon_trash">
-                        <?php if ($_SESSION['id'] == $post['member_id']): ?>
-                        <p class="msg_delete"><a href="delete.php?id=<?php echo h($post['id']); ?>"><i class="far fa-trash-alt"></i> 削除</a></p>
-                        <?php endif; ?>
-                    </div>
-                    <div>
-                        <?php if ($post['reply_post_id'] > 0): ?>
-                        <a href="view.php?id=<?php echo h($post['reply_post_id']); ?>"><i class="fas fa-envelope-square"></i> 返信元を見る</a>
-                        <?php endif; ?>
-                    </div>
+                        <div>
+                            <p><a href="index.php?like=<?php echo h($post['id']); ?>&page=<?php echo h($page); ?>"><i class="far fa-heart"></i></a></p>
+                        </div>
+                        <div class="icon_reply">
+                            <p class="meg_reply"><a href="index.php?res=<?php echo h($post['id']); ?>"><i class="fas fa-reply"></i> 返信</a></p>
+                        </div>
+                        <div class="icon_trash">
+                            <?php if ($_SESSION['id'] == $post['member_id']): ?>
+                            <p class="msg_delete"><a href="delete.php?id=<?php echo h($post['id']); ?>"><i class="far fa-trash-alt"></i> 削除</a></p>
+                            <?php endif; ?>
+                        </div>
+                        <div>
+                            <?php if ($post['reply_post_id'] > 0): ?>
+                            <a href="view.php?id=<?php echo h($post['reply_post_id']); ?>"><i class="fas fa-envelope-square"></i> 返信元を見る</a>
+                            <?php endif; ?>
+                        </div>
                     </article>
                 </div>
                 <article class="post">
@@ -175,4 +161,5 @@ function makeLink($value) {
     </ul>
 </div>
 </body>
+
 </html>

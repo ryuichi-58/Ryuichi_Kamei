@@ -1,5 +1,5 @@
 <?php
-require('dbconnect.php');
+require_once('dbconnect.php');
 
 session_start();
 
@@ -13,10 +13,10 @@ if (!empty($_POST)) {
     // ログイン処理
     if ($_POST['email'] != '' && $_POST['password'] != '') {
         $login = $db->prepare('SELECT * FROM members WHERE email=? AND password=?');
-        $login->execute(array(
+        $login->execute([
             $_POST['email'],
             sha1($_POST['password'])
-        ));
+        ]);
         $member = $login->fetch();
 
         if ($member) {

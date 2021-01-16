@@ -1,6 +1,7 @@
 <?php
-require('../dbconnect.php');
 session_start();
+require_once('../dbconnect.php');
+
 
 if (!empty($_POST)) {
 	if ($_POST['name'] === '') {
@@ -26,7 +27,7 @@ if (!empty($_POST)) {
 	//アカウントの重複チェック
 	if(empty($error)) {
 		$member = $db->prepare('SELECT COUNT(*) AS cnt FROM members WHERE email=?');
-		$member->execute(array($_POST['email']));
+		$member->execute([$_POST['email']]);
 		$record = $member->fetch();
 		if ($record['cnt'] > 0) {
 			$error['email'] = 'duplicate';
