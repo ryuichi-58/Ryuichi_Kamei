@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('dbconnect.php');
+require_once('function/dbconnect.php');
 
 if (isset($_SESSION['id'])) {
     $id = $_REQUEST['id'];

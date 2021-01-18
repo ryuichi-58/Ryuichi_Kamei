@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('dbconnect.php');
+require_once('function/dbconnect.php');
+require_once('function/htmlspecialchars.php');
 
 if (empty($_REQUEST['id'])) {
     header('Location: index.php');
@@ -31,16 +32,16 @@ $posts->execute([$_REQUEST['id']]);
             if ($post = $posts->fetch()):
             ?>
             <div class="msg_container">
-                <img src="member_picture/<?php echo htmlspecialchars($post['picture'], ENT_QUOTES)?>" width="48" height="48" alt="<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>" />
+                <img src="member_picture/<?php echo h($post['picture'])?>" width="48" height="48" alt="<?php echo h($post['name']); ?>" />
                 <article class="user">
-                <p><span class="name"><?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?></span>
+                <p><span class="name"><?php echo h($post['name']); ?></span>
                 </article>
                 <article class="day">
-                <p class="created"><?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?></p>
+                <p class="created"><?php echo h($post['created']); ?></p>
                 </article>
             </div>
                 <article class="post">
-                <?php echo htmlspecialchars($post['message'], ENT_QUOTES); ?></p>
+                <?php echo h($post['message']); ?></p>
                 </article>
                 <?php
                 else:

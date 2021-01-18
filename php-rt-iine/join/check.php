@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('../dbconnect.php');
+require_once('../function/dbconnect.php');
+require_once('../function/htmlspecialchars.php');
 
 if (!isset($_SESSION['join'])) {
 	header('Location: index.php');
@@ -39,13 +40,13 @@ if (!empty($_POST)) {
 	<dl class="border">
 		<dt class="sub_title">ネーム</dt>
 		<dd class="input_value">
-		<?php print(htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES)); ?>
+		<?php print(h($_SESSION['join']['name'])); ?>
 		</dd>
 	</dl>
 	<dl class="border">
 		<dt class="sub_title">メールアドレス</dt>
 		<dd class="input_value">
-		<?php print(htmlspecialchars($_SESSION['join']['email'], ENT_QUOTES)); ?>
+		<?php print(h($_SESSION['join']['email'])); ?>
 		</dd>
 	</dl>
 	<dl class="border">
@@ -58,7 +59,7 @@ if (!empty($_POST)) {
 		<dt class="sub_title">アイコン用画像</dt>
 		<dd class="input_value">
 		<?php if ($_SESSION['join']['image'] !== ''): ?>
-		<img src="../member_picture/<?php print(htmlspecialchars($_SESSION['join']['image'], ENT_QUOTES)); ?>">
+		<img src="../member_picture/<?php print(h($_SESSION['join']['image'])); ?>">
 		<?php endif; ?>
 		</dd>
 	</dl>

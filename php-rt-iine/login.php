@@ -1,5 +1,6 @@
 <?php
-require_once('dbconnect.php');
+require_once('function/dbconnect.php');
+require_once('function/htmlspecialchars.php');
 
 session_start();
 
@@ -54,7 +55,7 @@ if (!empty($_POST)) {
         <form action="" method="post">
 		    <div class="form_item">
                 <label for="email"></label>
-                <input type="email" name="email" required="required" placeholder="Email Address" value="<?php echo htmlspecialchars($_POST['email']); ?>"/></input>
+                <input type="email" name="email" required="required" placeholder="Email Address" value="<?php echo h($_POST['email']); ?>"/></input>
                 <?php if ($error['login'] == 'blank'): ?>
                 <p class="error">* メールアドレスが正しくありません</p>
                 <?php endif; ?>
@@ -64,7 +65,7 @@ if (!empty($_POST)) {
             </div>
             <div class="form_item">
                 <label for="password"></label>
-                <input type="password" name="password" required="required" placeholder="Password" value="<?php echo htmlspecialchars($_POST['password']); ?>" /></input>
+                <input type="password" name="password" required="required" placeholder="Password" value="<?php echo h($_POST['password']); ?>" /></input>
             </div>
             <?php if ($error['password'] == 'blank'): ?>
             <p class="error">* パスワードが正しくありません</p>

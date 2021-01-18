@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('dbconnect.php');
+require_once('function/dbconnect.php');
+require_once('function/htmlspecialchars.php');
 
 if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     // ログインしている
@@ -64,10 +65,6 @@ if (isset($_REQUEST['res'])) {
 
     $table = $response->fetch();
     $message = '@' . $table['name'] . ' ' . $table['message'];
-}
-// hファンクション
-function h($value) {
-    return htmlentities($value, ENT_QUOTES);
 }
 // 本文内のURLにリンクを設定します
 function makeLink($value) {

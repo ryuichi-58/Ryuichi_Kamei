@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('../dbconnect.php');
+require_once('../function/dbconnect.php');
+require_once('../function/htmlspecialchars.php');
 
 if (!empty($_POST)) {
 	if ($_POST['name'] === '') {
@@ -65,13 +66,13 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
 		<h2>以下の項目をご記入の上、「次へ」を押して下さい。</h2>
 			<dl class="form_item">
 				<dd>
-					<input type="text" name="name" maxlength="50" required="required" placeholder="Name" value="<?php print (htmlspecialchars($_POST['name'], ENT_QUOTES)); ?>" />
+					<input type="text" name="name" maxlength="50" required="required" placeholder="Name" value="<?php print (h($_POST['name'])); ?>" />
 					<?php if ($error['name'] === 'blank'): ?>
 					<p class="error">* 名前を入力して下さい</p>
 					<?php endif; ?>
 				</dd>
 				<dd>
-					<input type="text" name="email" maxlength="50" required="required" placeholder="Email Address" value="<?php print (htmlspecialchars($_POST['email'], ENT_QUOTES)); ?>" />
+					<input type="text" name="email" maxlength="50" required="required" placeholder="Email Address" value="<?php print (h($_POST['email'])); ?>" />
 					<?php if ($error['email'] === 'blank'): ?>
 					<p class="error">* メールアドレスを入力して下さい</p>
 					<?php endif; ?>
@@ -79,7 +80,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
 					<p class="error">* 指定されたメールアドレスは、既に登録されています</p>
 					<?php endif; ?>
 				<dd>
-					<input type="password" name="password" maxlength="20" required="required" placeholder="Pass Word" value="<?php print (htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
+					<input type="password" name="password" maxlength="20" required="required" placeholder="Pass Word" value="<?php print (h($_POST['password'])); ?>" />
 					<?php if ($error['password'] === 'length'): ?>
 					<p class="error">* パスワードは4文字以上で入力して下さい</p>
 					<?php endif; ?>
