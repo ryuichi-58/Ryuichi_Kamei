@@ -66,6 +66,13 @@ if (isset($_REQUEST['res'])) {
     $table = $response->fetch();
     $message = '@' . $table['name'] . ' ' . $table['message'];
 }
+
+//いいねしたコメントの投稿者を調べる
+if(isset($_POST['like'])) {
+    $contributor = $db->prepare('SELECT member_id FROM posts WHERE id=?');
+    $contributor->execute([$_POST['like']]);
+    $like_post = $contributor->fetch();
+}
 // 本文内のURLにリンクを設定
 function makeLink($value) {
     return mb_ereg_replace("(https?)(://[[:alnum]\+\$\;\?\.%,!#~*/:@&=_-]+)", '<a href="\1\2">\1\2</a>', $value);
