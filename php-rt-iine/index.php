@@ -8,7 +8,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     $_SESSION['time'] = time();
 
     $members = $db->prepare('SELECT * FROM members WHERE id=?');
-    $members->execute(array($_SESSION['id']));
+    $members->execute([$_SESSION['id']]);
     $member = $members->fetch();
 } else {
     // ログインしていない
@@ -25,11 +25,11 @@ if (!empty($_POST)) {
         $message = $db->prepare('INSERT INTO posts
                                 SET member_id=?,
                                 message=?, reply_post_id=?, created=NOW()');
-        $message->execute(array(
+        $message->execute([
             $member['id'],
             $_POST['message'],
             $_POST['reply_post_id']
-        ));
+        ]);
         header('Location: index.php');
         exit();
     }
@@ -61,12 +61,12 @@ if (isset($_REQUEST['res'])) {
                             FROM members m.posts p
                             WHERE m.id=p.member_id
                             AND p.id=? ORDER BY p.created DESC');
-    $response->execute(array($_REQUEST['res']));
+    $response->execute([$_REQUEST['res']]);
 
     $table = $response->fetch();
     $message = '@' . $table['name'] . ' ' . $table['message'];
 }
-// 本文内のURLにリンクを設定します
+// 本文内のURLにリンクを設定
 function makeLink($value) {
     return mb_ereg_replace("(https?)(://[[:alnum]\+\$\;\?\.%,!#~*/:@&=_-]+)", '<a href="\1\2">\1\2</a>', $value);
 }
@@ -120,21 +120,9 @@ function makeLink($value) {
                         <?php echo h($post['created']); ?>
                     </div>
                     <!-- ライクボタン -->
-                    <?php
-                    $like_cnt = 0;
-                    if (!empty($my_like)) {
-                        foreach($my_like as $like_post) {
-                            foreach ($like_post as $like_post_id) {
-                                if ($like_post_id == $post['id']) {
-                                    $like_cnt = 1;
-                                }
-                            }
-                        }
-                    }
-                    ?>
-                        <div>
-                        <p><a href="index.php?like=<?php echo h($post['id']); ?>&page=<?php echo h($page); ?>"><i class="far fa-heart"></i></a></p>
-                        </div>
+                    <div>
+                    <p><a href="index.php?like=<?php echo h($post['id']); ?>&page=<?php echo h($page); ?>"><i class="far fa-heart"></i></a></p>
+                    </div>
                     <div class="icon_reply">
                         <p class="meg_reply"><a href="index.php?res=<?php echo h($post['id']); ?>"><i class="fas fa-reply"></i> 返信</a></p>
                     </div>

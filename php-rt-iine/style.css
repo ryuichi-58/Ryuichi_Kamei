@@ -104,6 +104,10 @@ form {
   padding: 10px 0 30px 0;
 }
 
+.new_created a {
+  color: #f16272;
+}
+
 /* join/index.php */
 h2 {
   padding-bottom:20px;
@@ -116,7 +120,7 @@ h2 {
 .return_button,
 .login_button,
 .write_button .button {
-  background: #f8213a;
+  background: #f16272;
   border: none;
   color: #fff;
   cursor: pointer;

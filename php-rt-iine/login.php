@@ -68,7 +68,7 @@ if (!empty($_POST)) {
                 <input type="password" name="password" required="required" placeholder="Password" value="<?php echo h($_POST['password']); ?>" /></input>
             </div>
             <?php if ($error['password'] == 'blank'): ?>
-            <p class="error">* パスワードが正しくありません</p>
+                <p class="error">* パスワードが正しくありません</p>
             <?php endif; ?>
             <div class="button_panel">
                 <input type="submit" class="button" title="login" value="login"></input>
@@ -76,7 +76,7 @@ if (!empty($_POST)) {
             <div class="form_footer">
                 <input id="save" type="checkbox" name="save" value="on">
                 <label for="save"><a>ログインを保存</a></label>
-                <p class="new_created"><a href="join/">新規アカウントを作成</a></p>
+                <p class="new_created"><a href="join/">新規アカウントを作成する</a></p>
             </div>
         </form>
     </div>
