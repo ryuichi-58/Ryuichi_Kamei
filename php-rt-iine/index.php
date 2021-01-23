@@ -72,6 +72,11 @@ if(isset($_POST['like'])) {
     $contributor = $db->prepare('SELECT member_id FROM posts WHERE id=?');
     $contributor->execute([$_POST['like']]);
     $like_post = $contributor->fetch();
+
+    //いいねした人と投稿者が同じでないか確認
+    if($_SESSION['id'] != $like_posts['member_id']) {
+
+    }
 }
 // 本文内のURLにリンクを設定
 function makeLink($value) {
