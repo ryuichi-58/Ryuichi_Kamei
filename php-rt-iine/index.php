@@ -82,7 +82,25 @@ if(isset($_POST['like'])) {
             $_SESSION['id']
         ]);
         $like_cnt = $pressed_like_button->fetch();
-
+        
+        //いいねの登録と削除
+        if($like_cnt['cnt'] < 1) {
+            $pressing_like = $db->prepare('INSERT INTO likes SET post_id=?, member_id=?, created=NOW()');
+            $pressing_like->execute([
+                $_POST['like'],
+                $_SESSION['id']
+            ]);
+            header("Location: index.php");
+            exit();
+        } else {
+            $cancel_like = $db->prepare('DELETE FROM likes WHERE post_id=? AND member_id=?');
+            $cancel_like->execute([
+                $_POST['like'],
+                $_SESSION['id']
+            ]);
+            header("Location: index.php");
+            exit();
+        }
     }
 }
 // 本文内のURLにリンクを設定
