@@ -75,6 +75,13 @@ if(isset($_POST['like'])) {
 
     //いいねした人と投稿者が同じでないか確認
     if($_SESSION['id'] != $like_posts['member_id']) {
+        //過去にいいねしていないか確認
+        $pressed_like_button = $db->prepare('SELECT COUNT(*) AS cnt FROM likes WHERE post_id=? AND member_id=?');
+        $pressed_like_button->execute([
+            $_POST['like'],
+            $_SESSION['id']
+        ]);
+        $like_cnt = $pressed_like_button->fetch();
 
     }
 }
