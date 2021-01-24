@@ -68,9 +68,9 @@ if (isset($_REQUEST['res'])) {
 }
 
 //いいねしたコメントの投稿者を調べる
-if(isset($_POST['like'])) {
+if(isset($_REQUEST['like'])) {
     $contributor = $db->prepare('SELECT member_id FROM posts WHERE id=?');
-    $contributor->execute([$_POST['like']]);
+    $contributor->execute([$_REQUEST['like']]);
     $like_post = $contributor->fetch();
 
     //いいねした人と投稿者が同じでないか確認
@@ -78,16 +78,16 @@ if(isset($_POST['like'])) {
         //過去にいいねしていないか確認
         $pressed_like_button = $db->prepare('SELECT COUNT(*) AS cnt FROM likes WHERE post_id=? AND member_id=?');
         $pressed_like_button->execute([
-            $_POST['like'],
+            $_REQUEST['like'],
             $_SESSION['id']
         ]);
         $like_cnt = $pressed_like_button->fetch();
-        
+
         //いいねの登録と削除
         if($like_cnt['cnt'] < 1) {
             $pressing_like = $db->prepare('INSERT INTO likes SET post_id=?, member_id=?, created=NOW()');
             $pressing_like->execute([
-                $_POST['like'],
+                $_REQUEST['like'],
                 $_SESSION['id']
             ]);
             header("Location: index.php");
@@ -95,7 +95,7 @@ if(isset($_POST['like'])) {
         } else {
             $cancel_like = $db->prepare('DELETE FROM likes WHERE post_id=? AND member_id=?');
             $cancel_like->execute([
-                $_POST['like'],
+                $_REQUEST['like'],
                 $_SESSION['id']
             ]);
             header("Location: index.php");
