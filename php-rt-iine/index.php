@@ -34,6 +34,53 @@ if (!empty($_POST)) {
         exit();
     }
 }
+// コメント別にいいねされた件数を取り出す
+$posts = $db->prepare('SELECT m.name, m.picture, p.*, COUNT(l.post_id) AS like_cnt FROM members m, posts p LEFT JOIN likes l ON p.id=l.post_id WHERE m.id=p.member_id GROUP BY l.post_id ORDER BY p.created DESC LIMIT ?, 5');
+$posts->bindParam(1, $start, PDO::PARAM_INT);
+$posts->execute();
+
+    // いいねしたコメントの投稿者を調べる
+    if(isset($_REQUEST['like'])) {
+        $contributor = $db->prepare('SELECT member_id FROM posts WHERE id=?');
+        $contributor->execute([$_REQUEST['like']]);
+        $like_post = $contributor->fetch();
+
+        //いいねした人と投稿者が同じでないか確認
+        if($_SESSION['id'] != $like_posts['member_id']) {
+            //過去にいいねしていないか確認
+            $pressed_like_button = $db->prepare('SELECT COUNT(*) AS cnt FROM likes WHERE post_id=? AND member_id=?');
+            $pressed_like_button->execute([
+                $_REQUEST['like'],
+                $_SESSION['id']
+            ]);
+            $like_cnt = $pressed_like_button->fetch();
+
+            //いいねの登録と削除
+            if($like_cnt['cnt'] < 1) {
+                $pressing_like = $db->prepare('INSERT INTO likes SET post_id=?, member_id=?, created=NOW()');
+                $pressing_like->execute([
+                    $_REQUEST['like'],
+                    $_SESSION['id']
+                ]);
+                header("Location: index.php");
+                exit();
+            } else {
+                $cancel_like = $db->prepare('DELETE FROM likes WHERE post_id=? AND member_id=?');
+                $cancel_like->execute([
+                    $_REQUEST['like'],
+                    $_SESSION['id']
+                ]);
+                header("Location: index.php");
+                exit();
+            }
+        }
+    }
+    // いいねしたコメントをすべて取得
+    $likes = $db->prepare('SELECT post_id FROM likes WHERE member_id=?');
+    $likes->execute([$_SESSION['id']]);
+    while ($likes_post = $likes->fetch()) {
+        $all_likes[] = $likes_post;
+    }
 
 // 投稿を取得する
 $page = $_REQUEST['page'];
@@ -67,42 +114,6 @@ if (isset($_REQUEST['res'])) {
     $message = '@' . $table['name'] . ' ' . $table['message'];
 }
 
-//いいねしたコメントの投稿者を調べる
-if(isset($_REQUEST['like'])) {
-    $contributor = $db->prepare('SELECT member_id FROM posts WHERE id=?');
-    $contributor->execute([$_REQUEST['like']]);
-    $like_post = $contributor->fetch();
-
-    //いいねした人と投稿者が同じでないか確認
-    if($_SESSION['id'] != $like_posts['member_id']) {
-        //過去にいいねしていないか確認
-        $pressed_like_button = $db->prepare('SELECT COUNT(*) AS cnt FROM likes WHERE post_id=? AND member_id=?');
-        $pressed_like_button->execute([
-            $_REQUEST['like'],
-            $_SESSION['id']
-        ]);
-        $like_cnt = $pressed_like_button->fetch();
-
-        //いいねの登録と削除
-        if($like_cnt['cnt'] < 1) {
-            $pressing_like = $db->prepare('INSERT INTO likes SET post_id=?, member_id=?, created=NOW()');
-            $pressing_like->execute([
-                $_REQUEST['like'],
-                $_SESSION['id']
-            ]);
-            header("Location: index.php");
-            exit();
-        } else {
-            $cancel_like = $db->prepare('DELETE FROM likes WHERE post_id=? AND member_id=?');
-            $cancel_like->execute([
-                $_REQUEST['like'],
-                $_SESSION['id']
-            ]);
-            header("Location: index.php");
-            exit();
-        }
-    }
-}
 // 本文内のURLにリンクを設定
 function makeLink($value) {
     return mb_ereg_replace("(https?)(://[[:alnum]\+\$\;\?\.%,!#~*/:@&=_-]+)", '<a href="\1\2">\1\2</a>', $value);
@@ -156,9 +167,25 @@ function makeLink($value) {
                     <div class="created">
                         <?php echo h($post['created']); ?>
                     </div>
-                    <!-- ライクボタン -->
+                    <!-- いいねボタン -->
                     <div>
-                    <p><a href="index.php?like=<?php echo h($post['id']); ?>&page=<?php echo h($page); ?>"><i class="far fa-heart"></i></a></p>
+                    <?php
+                    $like_cnt = 0;
+                    if(!empty($all_likes)) {
+                        foreach($all_likes as $like_post) {
+                            foreach($like_post as $like_post_id) {
+                                if ($like_post_id === $post['id']) {
+                                    $like_cnt = 1;
+                                }
+                            }
+                        }
+                    }
+                    ?>
+                    <?php if ($like_cnt < 1): ?>
+                    <p><a href="index.php?like=<?php echo h($post['id']); ?>&page=<?php echo h($page); ?>">&#9825;</a></p>
+                    <?php else : ?>
+                    <p><a href="index.php?like=<?php echo h($post['id']); ?>&page=<?php echo h($page); ?>">&#9829;</a></p>
+                    <?php endif; ?>
                     </div>
                     <div class="icon_reply">
                         <p class="meg_reply"><a href="index.php?res=<?php echo h($post['id']); ?>"><i class="fas fa-reply"></i> 返信</a></p>
